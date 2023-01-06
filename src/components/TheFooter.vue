@@ -8,22 +8,14 @@
           />
         </v-col>
       </v-row>
-      <div class="d-flex justify-center align-center">
-        <div>
-          <a href="http://qr.afip.gob.ar/?qr=yVrCGTlYOG0GujGAS-FWKA,," target="_blank">
-            <v-img
-                src="https://www.afip.gob.ar/images/f960/DATAWEB.jpg"
-                width="70"
-            />
-          </a>
-        </div>
-      </div>
+      <FiscalData/>
     </v-container>
   </v-footer>
 </template>
 
 <script>
 import FooterLinkList from "@/components/FooterLinkList";
+import FiscalData from "@/components/FiscalData";
 
 const categories = 'Aberturas,Baños,Cocinas,Instalaciones,Construcción En Seco,Electricidad,Pisos Y Revestimientos,Herramientas,Jardín Y Aire Libre,Materiales De Construccion,Calefacción,Griferías,Pinturas Y Revestimientos Plásticos'
 const brands = 'LOURDES,SAN PIETRO PORCELANATO,OBLAK,ECOTERMO,ALBERDI,KLAUKOL,TROMEN,SCHNEIDER,CERRO NEGRO,GRIFERIA PEIRANO,FERRUM'
@@ -31,7 +23,7 @@ const institutional = '¿Como comprar?,Preguntas frecuentes,Terminos y condicion
 
 export default {
   name: "TheFooter",
-  components: {FooterLinkList},
+  components: {FiscalData, FooterLinkList},
   data() {
     return {
       links: [
