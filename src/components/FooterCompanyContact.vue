@@ -1,15 +1,20 @@
 <template>
-  <v-col class="text--white text-center">
-    <div class="mb-2" v-for="(link, index) in links" :key="index">
-      <v-icon color="white">{{link.icon}}</v-icon>
-      <a :href="link.url" target="_blank">{{link.text}}</a>
-    </div>
-  </v-col>
+  <div class="mb-6">
+    <v-col class="text--white text-center">
+      <div class="mb-2" v-for="(link, index) in links" :key="index">
+        <v-icon color="white">{{ link.icon }}</v-icon>
+        <a :href="link.url" target="_blank">{{ link.text }}</a>
+      </div>
+    </v-col>
+    <FooterSocials/>
+  </div>
 </template>
 
 <script>
+import FooterSocials from "@/components/FooterSocials";
 export default {
   name: "FooterCompanyContact",
+  components: {FooterSocials},
   data() {
     return {
       links: [

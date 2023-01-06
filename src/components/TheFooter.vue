@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="primary white--text justify-center">
+  <v-footer class="quarter white--text justify-center">
     <v-container>
      <FooterCompanyContact/>
       <v-row>
