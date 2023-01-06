@@ -40,16 +40,19 @@
     <v-main>
       <HelloWorld/>
     </v-main>
+    <TheFooter/>
   </v-app>
 </template>
 
 <script>
 import HelloWorld from './components/HelloWorld';
+import TheFooter from "./components/TheFooter";
 
 export default {
   name: 'App',
 
   components: {
+    TheFooter,
     HelloWorld,
   },
 
