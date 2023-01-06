@@ -1,6 +1,7 @@
 <template>
   <v-footer class="primary white--text justify-center">
     <v-container>
+     <FooterCompanyContact/>
       <v-row>
         <v-col cols="12" v-for="linkData in links" :key="linkData.title">
           <FooterLinkList
@@ -18,6 +19,7 @@
 import FooterLinkList from "@/components/FooterLinkList";
 import FiscalData from "@/components/FiscalData";
 import FooterCopyright from "@/components/FooterCopyright";
+import FooterCompanyContact from "@/components/FooterCompanyContact";
 
 const categories = 'Aberturas,Baños,Cocinas,Instalaciones,Construcción En Seco,Electricidad,Pisos Y Revestimientos,Herramientas,Jardín Y Aire Libre,Materiales De Construccion,Calefacción,Griferías,Pinturas Y Revestimientos Plásticos'
 const brands = 'LOURDES,SAN PIETRO PORCELANATO,OBLAK,ECOTERMO,ALBERDI,KLAUKOL,TROMEN,SCHNEIDER,CERRO NEGRO,GRIFERIA PEIRANO,FERRUM'
@@ -25,7 +27,7 @@ const institutional = '¿Como comprar?,Preguntas frecuentes,Terminos y condicion
 
 export default {
   name: "TheFooter",
-  components: {FiscalData, FooterLinkList, FooterCopyright},
+  components: {FooterCompanyContact, FiscalData, FooterLinkList, FooterCopyright},
   data() {
     return {
       links: [
