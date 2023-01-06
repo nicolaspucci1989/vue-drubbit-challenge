@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-center align-center">
+  <div class="d-flex justify-center align-center mb-6">
     <div>
       <a :href="url" target="_blank">
         <v-img :src="img" width="70"/>
