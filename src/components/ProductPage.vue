@@ -88,13 +88,15 @@
         </v-row>
       </v-col>
     </v-row>
+    <RelatedProductCard/>
   </v-container>
 </template>
 
 <script>
+  import RelatedProductCard from "@/components/RelatedProductCard";
   export default {
     name: 'ProductPage',
-
+    components: { RelatedProductCard },
     data: () => ({
       ecosystem: [
         {
