@@ -1,15 +1,25 @@
 <template>
-    <v-footer class="primary white--text justify-center">
-      <v-container>
-        <v-row>
-          <v-col cols="12" v-for="linkData in links" :key="linkData.title">
-            <FooterLinkList
+  <v-footer class="primary white--text justify-center">
+    <v-container>
+      <v-row>
+        <v-col cols="12" v-for="linkData in links" :key="linkData.title">
+          <FooterLinkList
               v-bind="linkData"
-              />
-          </v-col>
-        </v-row>
-      </v-container>
-    </v-footer>
+          />
+        </v-col>
+      </v-row>
+      <div class="d-flex justify-center align-center">
+        <div>
+          <a href="http://qr.afip.gob.ar/?qr=yVrCGTlYOG0GujGAS-FWKA,," target="_blank">
+            <v-img
+                src="https://www.afip.gob.ar/images/f960/DATAWEB.jpg"
+                width="70"
+            />
+          </a>
+        </div>
+      </div>
+    </v-container>
+  </v-footer>
 </template>
 
 <script>
@@ -24,20 +34,20 @@ export default {
   components: {FooterLinkList},
   data() {
     return {
-     links: [
-       {
-         title: 'Categorias',
-         items: categories.split(',')
-       },
-       {
-         title: 'Marcas',
-         items: brands.split(',')
-       },
-       {
-         title: 'Institucional',
-         items: institutional.split(',')
-       }
-     ]
+      links: [
+        {
+          title: 'Categorias',
+          items: categories.split(',')
+        },
+        {
+          title: 'Marcas',
+          items: brands.split(',')
+        },
+        {
+          title: 'Institucional',
+          items: institutional.split(',')
+        }
+      ]
     }
   }
 }
