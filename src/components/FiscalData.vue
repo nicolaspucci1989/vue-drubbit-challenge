@@ -2,10 +2,7 @@
   <div class="d-flex justify-center align-center">
     <div>
       <a :href="url" target="_blank">
-        <v-img
-            :src="img"
-            width="70"
-        />
+        <v-img :src="img" width="70"/>
       </a>
     </div>
   </div>
