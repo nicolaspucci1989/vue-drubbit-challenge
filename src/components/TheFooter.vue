@@ -2,20 +2,10 @@
     <v-footer class="primary white--text justify-center">
       <v-container>
         <v-row>
-          <v-col cols="12">
+          <v-col cols="12" v-for="linkData in links" :key="linkData.title">
             <FooterLinkList
-              :items="categories"
-            />
-          </v-col>
-          <v-col cols="12">
-            <FooterLinkList
-              :items="brands"
-            />
-          </v-col>
-          <v-col cols="12">
-            <FooterLinkList
-              :items="institutional"
-            />
+              v-bind="linkData"
+              />
           </v-col>
         </v-row>
       </v-container>
@@ -34,9 +24,20 @@ export default {
   components: {FooterLinkList},
   data() {
     return {
-      categories: categories.split(','),
-      brands: brands.split(','),
-      institutional: institutional.split(',')
+     links: [
+       {
+         title: 'Categorias',
+         items: categories.split(',')
+       },
+       {
+         title: 'Marcas',
+         items: brands.split(',')
+       },
+       {
+         title: 'Institucional',
+         items: institutional.split(',')
+       }
+     ]
     }
   }
 }

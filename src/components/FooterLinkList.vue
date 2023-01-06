@@ -1,8 +1,8 @@
 <template>
-  <div class="text-center">
-    <div>{{title}}</div>
+  <div class="text-center text-md mb-6">
+    <div class="text-h6 mb-6 font-weight-bold">{{title}}</div>
     <ul class="pl-0">
-      <li v-for="(item, index) in items" :key="index">{{item}}</li>
+      <li class="mb-2" v-for="(item, index) in items" :key="index">{{item}}</li>
     </ul>
   </div>
 </template>
