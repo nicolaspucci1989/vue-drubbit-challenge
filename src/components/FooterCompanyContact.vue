@@ -1,5 +1,10 @@
 <template>
   <div class="mb-6">
+    <v-img
+        src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/fcfc5e2b51aa92dc6a39c93084a97153ea98dd51.png"
+        class="mb-2"
+        width="300"
+    />
     <v-col class="text--white text-center">
       <div class="mb-2" v-for="(link, index) in links" :key="index">
         <v-icon color="white">{{ link.icon }}</v-icon>

@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="quarter white--text justify-center">
+  <v-footer class="footer white--text justify-center pt-16">
     <v-container>
      <FooterCompanyContact/>
       <v-row>
@@ -50,5 +50,8 @@ export default {
 </script>
 
 <style scoped>
-
+.footer {
+  border-top: 10px solid red!important;
+  background-color: #461e8c;
+}
 </style>
