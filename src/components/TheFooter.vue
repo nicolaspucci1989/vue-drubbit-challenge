@@ -9,7 +9,7 @@
         </v-col>
       </v-row>
       <FiscalData/>
-     <FooterCopyright/>
+      <FooterCopyright/>
     </v-container>
   </v-footer>
 </template>
