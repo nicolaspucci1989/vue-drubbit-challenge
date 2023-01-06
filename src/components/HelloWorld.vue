@@ -3,7 +3,7 @@
     <v-row class="text-center">
       <v-col cols="12">
         <v-img
-          :src="require('../assets/logo.svg')"
+          src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/fcfc5e2b51aa92dc6a39c93084a97153ea98dd51.png.webp"
           class="my-3"
           contain
           height="200"
