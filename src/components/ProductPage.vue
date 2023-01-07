@@ -1,5 +1,9 @@
 <template>
   <v-container>
+    <ProductQuantityCounter :max="3"/>
+    <div class="font-weight-thin text--secondary my-3">
+      3 Unidades disponibles
+    </div>
     <BuyButton/>
     <v-divider class="mt-6"/>
 
@@ -22,6 +26,7 @@ import ProductAttributesList from "@/components/ProductAttributesList";
 import ProductDescription from "@/components/ProductDescription";
 import ProductDeliveryInfoGroup from "@/components/ProductDeliveryInfoGroup";
 import BuyButton from "@/components/BuyButton";
+import ProductQuantityCounter from "@/components/ProductQuantityCounter";
 
 export default {
   name: 'ProductPage',
@@ -31,7 +36,7 @@ export default {
       required: true
     }
   },
-  components: { BuyButton, ProductDeliveryInfoGroup, ProductDescription, ProductAttributesList, RelatedProducts },
+  components: { ProductQuantityCounter, BuyButton, ProductDeliveryInfoGroup, ProductDescription, ProductAttributesList, RelatedProducts },
   data: () => ({}),
   mounted() {
     console.log(this.product)
