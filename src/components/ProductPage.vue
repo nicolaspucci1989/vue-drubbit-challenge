@@ -1,6 +1,10 @@
 <template>
   <v-container>
-    <ProductPrice/>
+    <ProductPrice
+        :discount-pct="20"
+        :prev-price="150774.45"
+        :price="120619.56"
+    />
     <div>
       <v-icon>
         mdi-check
