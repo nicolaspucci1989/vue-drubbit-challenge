@@ -1,5 +1,17 @@
 <template>
   <v-container>
+    <div>
+      <v-icon>
+        mdi-check
+      </v-icon>
+      Disponible en stock
+    </div>
+    <div>
+      <v-icon>
+        mdi-credit-card
+      </v-icon>
+      Hasta 18 cuotas sin interes
+    </div>
     <ProductQuantityCounter :max="3"/>
     <div class="font-weight-thin text--secondary my-3">
       3 Unidades disponibles
