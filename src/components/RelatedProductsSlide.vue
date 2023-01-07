@@ -1,14 +1,12 @@
 <template>
   <v-sheet
       class="mx-auto"
-      elevation="8"
       max-width="800"
   >
     <v-slide-group
         v-model="model"
         class="pa-4"
         active-class="success"
-        show-arrows
     >
       <v-slide-item
           v-for="n in 15"
