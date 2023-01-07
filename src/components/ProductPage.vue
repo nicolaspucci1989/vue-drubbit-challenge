@@ -1,5 +1,8 @@
 <template>
   <v-container>
+    <ProductDescription
+        :description="product.description"
+    />
     <ProductAttributesList
         :attributes="product.attributes"
     />
@@ -10,6 +13,7 @@
 <script>
   import RelatedProducts from "@/components/RelatedProducts";
   import ProductAttributesList from "@/components/ProductAttributesList";
+  import ProductDescription from "@/components/ProductDescription";
 
   export default {
     name: 'ProductPage',
@@ -19,7 +23,7 @@
         required: true
       }
     },
-    components: { ProductAttributesList, RelatedProducts },
+    components: { ProductDescription, ProductAttributesList, RelatedProducts },
     data: () => ({}),
     mounted() {
       console.log(this.product)
