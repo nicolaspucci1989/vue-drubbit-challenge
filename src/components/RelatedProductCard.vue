@@ -11,7 +11,8 @@
         width="300"
         src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/44d1d87cd0e622a1f800bbc46dd1aac2ff3143d6.jpg.webp"
     >
-      <div class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
+      <div
+          class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
         -20%
       </div>
       <div class="float-right d-flex align-center justify-center">
@@ -23,29 +24,15 @@
 
 
     <v-card-text>
-      <v-row
-          align="center"
-          class="mx-0"
-      >
-        <v-rating
-            :value="4.5"
-            color="amber"
-            dense
-            half-increments
-            readonly
-            size="14"
-        ></v-rating>
-
-        <div class="grey--text ms-4">
-          4.5 (413)
+      <div>
+        <div class="grey--text ms-3 text-decoration-line-through">
+          $ 82.234,23
         </div>
-      </v-row>
-
-      <div class="my-4 text-subtitle-1">
-        $ • Italian, Cafe
+        <div class="black--text grey--text ms-3 text-h6">
+          $ 18.234,23
+        </div>
       </div>
-
-      <div> Columna Mayo - Andina - Florencia - Traful - Olivos Ctfb Ferrum </div>
+      <div> Columna Mayo - Andina - Florencia - Traful - Olivos Ctfb Ferrum</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
@@ -72,7 +59,7 @@ export default {
   }),
 
   methods: {
-    reserve () {
+    reserve() {
       this.loading = true
 
       setTimeout(() => (this.loading = false), 2000)
