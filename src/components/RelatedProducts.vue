@@ -1,5 +1,5 @@
 <template>
-  <v-container class="py-12">
+  <v-container class="grey lighten-4 py-12">
     <h1 class="underline text-uppercase font-weight-medium text-center pb-1">
       Tambien te puede interesar
     </h1>
