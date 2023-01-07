@@ -3,10 +3,8 @@
       :loading="loading"
       flat
       class="mx-auto my-12"
-      max-width="374"
+      max-width="250"
   >
-
-
     <v-img
         width="300"
         src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/44d1d87cd0e622a1f800bbc46dd1aac2ff3143d6.jpg.webp"
