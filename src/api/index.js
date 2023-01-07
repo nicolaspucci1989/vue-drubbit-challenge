@@ -17,5 +17,5 @@ function getProductAttributes(product) {
 }
 
 function getProductDescription(product) {
-  return product.info.templateData
+  return product.info.templateData.description
 }
