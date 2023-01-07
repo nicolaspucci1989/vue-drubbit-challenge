@@ -6,10 +6,20 @@
       max-width="374"
   >
 
+
     <v-img
         width="300"
         src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/44d1d87cd0e622a1f800bbc46dd1aac2ff3143d6.jpg.webp"
-    ></v-img>
+    >
+      <div class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
+        -20%
+      </div>
+      <div class="float-right d-flex align-center justify-center">
+        <v-icon>
+          mdi-heart-outline
+        </v-icon>
+      </div>
+    </v-img>
 
 
     <v-card-text>
