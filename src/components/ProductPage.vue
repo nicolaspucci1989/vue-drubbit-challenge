@@ -1,6 +1,7 @@
 <template>
   <v-container>
     <ProductPageBreadcrumbs/>
+    <ProductInfo/>
     <ProductPrice
         :discount-pct="20"
         :prev-price="150774.45"
@@ -47,6 +48,7 @@ import BuyButton from "@/components/BuyButton";
 import ProductQuantityCounter from "@/components/ProductQuantityCounter";
 import ProductPrice from "@/components/ProductPrice";
 import ProductPageBreadcrumbs from "@/components/ProductPageBreadcrumbs";
+import ProductInfo from "@/components/ProductInfo";
 
 export default {
   name: 'ProductPage',
@@ -57,6 +59,7 @@ export default {
     }
   },
   components: {
+    ProductInfo,
     ProductPageBreadcrumbs,
     ProductPrice,
     ProductQuantityCounter,
