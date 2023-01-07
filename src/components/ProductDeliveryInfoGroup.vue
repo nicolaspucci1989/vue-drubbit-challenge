@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4">
+  <div class="py-4 open-sans-font">
     <ProductDeliveryInfo
         icon="mdi-package-up"
     >
