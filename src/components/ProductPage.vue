@@ -1,5 +1,6 @@
 <template>
   <v-container>
+    <ProductPrice/>
     <div>
       <v-icon>
         mdi-check
@@ -39,6 +40,7 @@ import ProductDescription from "@/components/ProductDescription";
 import ProductDeliveryInfoGroup from "@/components/ProductDeliveryInfoGroup";
 import BuyButton from "@/components/BuyButton";
 import ProductQuantityCounter from "@/components/ProductQuantityCounter";
+import ProductPrice from "@/components/ProductPrice";
 
 export default {
   name: 'ProductPage',
@@ -48,7 +50,15 @@ export default {
       required: true
     }
   },
-  components: { ProductQuantityCounter, BuyButton, ProductDeliveryInfoGroup, ProductDescription, ProductAttributesList, RelatedProducts },
+  components: {
+    ProductPrice,
+    ProductQuantityCounter,
+    BuyButton,
+    ProductDeliveryInfoGroup,
+    ProductDescription,
+    ProductAttributesList,
+    RelatedProducts
+  },
   data: () => ({}),
   mounted() {
     console.log(this.product)
