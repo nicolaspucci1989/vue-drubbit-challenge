@@ -11,6 +11,7 @@
       <v-slide-item
           v-for="n in 15"
           :key="n"
+          class="py-1 px-2"
       >
         <RelatedProductCard/>
       </v-slide-item>
