@@ -23,7 +23,7 @@ export default {
       return this.product.variants[0].stock.availability
     },
     isAvailable() {
-      return this.availability === 'inStock'
+      return this.availability === 'InStock'
     },
     icon() {
       return this.isAvailable ? 'mdi-check' : 'mdi-close'
