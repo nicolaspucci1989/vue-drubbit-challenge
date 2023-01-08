@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="px-8 white">
     <v-row>
       <!--Desktop view-->
       <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
