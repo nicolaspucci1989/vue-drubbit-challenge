@@ -21,7 +21,7 @@
         />
         <div class="pt-2 pb-3">
           <ProductStockInfo
-              availability="inStock"
+              :product="productData.product"
               class="py-1"
           />
           <ProductPaymentOptions class="mt-2"/>

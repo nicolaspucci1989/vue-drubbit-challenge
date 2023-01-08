@@ -1,6 +1,7 @@
 <template>
   <div>
-    <v-icon class="mr-2">{{icon}}</v-icon>{{inStock}}
+    <v-icon class="mr-2">{{ icon }}</v-icon>
+    {{ inStock }}
   </div>
 </template>
 
@@ -8,12 +9,19 @@
 export default {
   name: "ProductStockInfo",
   props: {
-    availability: {
-      type: String,
-      required: true
+    product: {
+      type: Object,
+      required: true,
+      validator(val) {
+        return 'variants' in val && Array.isArray(val.variants)
+        && 'stock' in val.variants[0]
+      }
     }
   },
   computed: {
+    availability() {
+      return this.product.variants[0].stock.availability
+    },
     isAvailable() {
       return this.availability === 'inStock'
     },
