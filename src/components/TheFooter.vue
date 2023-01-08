@@ -1,15 +1,20 @@
 <template>
   <v-footer class="footer white--text justify-center pt-16">
     <v-container>
-     <FooterCompanyContact/>
       <v-row>
-        <v-col cols="12" v-for="linkData in links" :key="linkData.title">
-          <FooterLinkList
-              v-bind="linkData"
-          />
+        <FooterCompanyContact/>
+        <v-col cols="12" md="2">
+          <FooterLinkList v-bind="links.categories"/>
+        </v-col>
+        <v-col cols="12" md="2">
+          <FooterLinkList v-bind="links.brands"/>
+        </v-col>
+        <v-col cols="12" md="2">
+          <FooterLinkList v-bind="links.institutional">
+            <slot><FiscalData/></slot>
+          </FooterLinkList>
         </v-col>
       </v-row>
-      <FiscalData/>
       <FooterCopyright/>
     </v-container>
   </v-footer>
@@ -27,23 +32,23 @@ const institutional = '¿Como comprar?,Preguntas frecuentes,Terminos y condicion
 
 export default {
   name: "TheFooter",
-  components: {FooterCompanyContact, FiscalData, FooterLinkList, FooterCopyright},
+  components: { FooterCompanyContact, FiscalData, FooterLinkList, FooterCopyright },
   data() {
     return {
-      links: [
-        {
+      links: {
+        categories: {
           title: 'Categorias',
           items: categories.split(',')
         },
-        {
+        brands: {
           title: 'Marcas',
           items: brands.split(',')
         },
-        {
+        institutional: {
           title: 'Institucional',
           items: institutional.split(',')
         }
-      ]
+      }
     }
   }
 }
@@ -51,7 +56,7 @@ export default {
 
 <style scoped>
 .footer {
-  border-top: 10px solid red!important;
+  border-top: 10px solid red !important;
   background-color: #461e8c;
 }
 </style>

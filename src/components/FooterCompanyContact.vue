@@ -1,18 +1,22 @@
 <template>
-  <div class="mb-6">
-    <v-img
-        src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/fcfc5e2b51aa92dc6a39c93084a97153ea98dd51.png"
-        class="mb-2"
-        width="300"
-    />
-    <v-col class="text--white text-center">
+  <v-col cols="12" md="6" class="mb-6 text-center text-md-start">
+    <div class="d-flex justify-center justify-md-start">
+      <div>
+        <v-img
+            src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/fcfc5e2b51aa92dc6a39c93084a97153ea98dd51.png"
+            class="mb-2"
+            width="300"
+        />
+      </div>
+    </div>
+    <v-col class="text--white">
       <div class="mb-2" v-for="(link, index) in links" :key="index">
-        <v-icon color="white">{{ link.icon }}</v-icon>
+        <v-icon color="white" class="mr-2">{{ link.icon }}</v-icon>
         <a :href="link.url" target="_blank">{{ link.text }}</a>
       </div>
-    </v-col>
     <FooterSocials/>
-  </div>
+    </v-col>
+  </v-col>
 </template>
 
 <script>
