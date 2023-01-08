@@ -81,7 +81,7 @@ import TheFooter from "./components/TheFooter";
 import ProductPage from "@/components/ProductPage";
 import { getProduct } from "@/api";
 
-const PRODUCT_ID = '039033cd-f096-48ab-9950-0a33a1d2e441'
+const PRODUCT_ID = '228f0f5f-ccc0-4dea-a111-5f561352514d'
 
 export default {
   name: 'App',
