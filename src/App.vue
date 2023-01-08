@@ -59,8 +59,8 @@
 
     <v-main class="grey lighten-4">
       <ProductPage
-          v-if="product !== null"
-          :product="product"
+          v-if="productData !== null"
+          :productData="productData"
       />
       <div v-else class="text-center" style="height: 100vh">
         <v-progress-circular
@@ -90,11 +90,11 @@ export default {
     TheFooter,
   },
   data: () => ({
-    product: null
+    productData: null
   }),
   async created() {
     try {
-      this.product = await getProduct(PRODUCT_ID)
+      this.productData = await getProduct(PRODUCT_ID)
     } catch (e) {
       console.log(e)
     }

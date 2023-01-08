@@ -4,10 +4,10 @@
       <!--Desktop view-->
       <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
         <ProductDescription
-            :description="product.description"
+            :description="description"
         />
         <ProductAttributesList
-            :attributes="product.attributes"
+            :attributes="attributes"
         />
       </v-col>
 
@@ -23,21 +23,20 @@
             :prev-price="150774.45"
             :price="120619.56"
         />
-       <ProductStockInfo
-           availability="inStock"
-           class="py-1"
-       />
-        <div>
-          <v-icon>
-            mdi-credit-card
-          </v-icon>
-          Hasta 18 cuotas sin interes
+        <div class="pt-2 pb-3">
+          <ProductStockInfo
+              availability="inStock"
+              class="py-1"
+          />
+          <ProductPaymentOptions class="mt-2"/>
         </div>
-        <ProductQuantityCounter :max="3"/>
-        <div class="font-weight-thin text--secondary my-3">
-          3 Unidades disponibles
+        <div class="py-3" style="border-top: 1px solid #e0e0e0">
+          <ProductQuantityCounter :max="3"/>
+          <div class="font-weight-thin text--secondary my-3">
+            3 Unidades disponibles
+          </div>
+          <BuyButton/>
         </div>
-        <BuyButton/>
         <v-divider class="mt-6"/>
 
         <ProductDeliveryInfoGroup/>
@@ -69,16 +68,18 @@ import ProductPrice from "@/components/ProductPrice";
 import ProductPageBreadcrumbs from "@/components/ProductPageBreadcrumbs";
 import ProductInfo from "@/components/ProductInfo";
 import ProductStockInfo from "@/components/ProductStockInfo";
+import ProductPaymentOptions from "@/components/ProductPaymentOptions";
 
 export default {
   name: 'ProductPage',
   props: {
-    product: {
+    productData: {
       type: Object,
       required: true
     }
   },
   components: {
+    ProductPaymentOptions,
     ProductStockInfo,
     ProductInfo,
     ProductPageBreadcrumbs,
@@ -91,8 +92,16 @@ export default {
     RelatedProducts
   },
   data: () => ({}),
-  mounted() {
-    console.log(this.product)
+  computed: {
+    product() {
+      return this.productData.data.product
+    },
+    description() {
+      return this.product.info.templateData.description
+    },
+    attributes() {
+      return this.product.attrs.map(atr => ({id: atr.id, name: atr.attrKey.k, value: atr.v}))
+    }
   }
 }
 </script>
