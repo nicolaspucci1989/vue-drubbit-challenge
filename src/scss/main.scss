@@ -6,6 +6,11 @@ ul {
   list-style-type: none;
 }
 
+a {
+  text-decoration: none;
+  color: inherit!important;
+}
+
 .open-sans-font {
   font-family: "Open Sans", sans-serif;
 }

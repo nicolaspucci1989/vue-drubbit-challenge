@@ -1,5 +1,5 @@
 <template>
-  <v-col class="d-flex justify-center">
+  <div class="d-flex justify-center justify-md-start">
     <v-btn
         v-for="link in links"
         :key="link.url"
@@ -8,7 +8,7 @@
     >
       <v-icon>{{link.icon}}</v-icon>
     </v-btn>
-  </v-col>
+  </div>
 </template>
 
 <script>
