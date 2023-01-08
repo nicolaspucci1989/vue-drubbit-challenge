@@ -20,20 +20,13 @@ import { numberFormat } from "@/util";
 export default {
   name: "ProductPrice",
   props: {
-    price: {
-      type: Number,
-      required: true
-    },
-    prevPrice: {
-      type: Number,
-    },
-    discountPct: {
-      type: Number,
-      required: false,
+    product: {
+      type: Object,
+      required: true,
       validator(val) {
-        return val > 0 && val < 100
+        return 'variants' in val && Array.isArray(val.variants)
       }
-    }
+    },
   },
   methods: {
     formatNumber(number) {
@@ -47,6 +40,18 @@ export default {
     }
   },
   computed: {
+    pvPrice() {
+      return this.product.variants[0].pvPrice
+    },
+    price() {
+      return this.pvPrice.price
+    },
+    prevPrice() {
+      return this.pvPrice.prevPrice
+    },
+    discountPct() {
+      return this.pvPrice.discountPct
+    },
     wholePrice() {
       return this.getWholePart(this.price)
     },

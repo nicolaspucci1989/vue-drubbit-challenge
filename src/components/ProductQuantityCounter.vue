@@ -22,11 +22,11 @@
 export default {
   name: "ProductQuantityCounter",
   props: {
-    max: {
-      type: Number,
+    product: {
+      type: Object,
       required: true,
       validator(val) {
-        return val > 0
+        return 'variants' in val
       }
     }
   },
@@ -46,6 +46,14 @@ export default {
         this.count -= 1
       }
     }
+  },
+  computed: {
+    max() {
+      return this.product.variants[0].stock.qty
+    }
+  },
+  mounted() {
+    this.max === 0 ? this.count = 0 : this.count = 1
   }
 }
 </script>

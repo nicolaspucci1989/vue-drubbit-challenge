@@ -57,10 +57,10 @@
       </v-row>
     </v-app-bar>
 
-    <v-main>
+    <v-main class="grey lighten-4">
       <ProductPage
-          v-if="product !== null"
-          :product="product"
+          v-if="productData !== null"
+          :productData="productData"
       />
       <div v-else class="text-center" style="height: 100vh">
         <v-progress-circular
@@ -81,7 +81,7 @@ import TheFooter from "./components/TheFooter";
 import ProductPage from "@/components/ProductPage";
 import { getProduct } from "@/api";
 
-const PRODUCT_ID = '039033cd-f096-48ab-9950-0a33a1d2e441'
+const PRODUCT_ID = '228f0f5f-ccc0-4dea-a111-5f561352514d'
 
 export default {
   name: 'App',
@@ -90,11 +90,11 @@ export default {
     TheFooter,
   },
   data: () => ({
-    product: null
+    productData: null
   }),
   async created() {
     try {
-      this.product = await getProduct(PRODUCT_ID)
+      this.productData = await getProduct(PRODUCT_ID)
     } catch (e) {
       console.log(e)
     }

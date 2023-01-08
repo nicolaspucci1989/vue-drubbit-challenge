@@ -13,13 +13,22 @@
 
 <script>
 import ProductAttributeItem from "@/components/ProductAttributeItem";
+
 export default {
   name: "ProductAttributesList",
   components: { ProductAttributeItem },
   props: {
-    attributes: {
-      type: Array,
-      required: true
+    product: {
+      type: Object,
+      required: true,
+      validator(val) {
+        return Object.hasOwn(val, 'attrs')
+      }
+    }
+  },
+  computed: {
+    attributes() {
+      return this.product.attrs.map(atr => ({ id: atr.id, name: atr.attrKey.k, value: atr.v }))
     }
   }
 }
