@@ -17,9 +17,7 @@
             :product="productData.product"
         />
         <ProductPrice
-            :discount-pct="20"
-            :prev-price="150774.45"
-            :price="120619.56"
+            :product="productData.product"
         />
         <div class="pt-2 pb-3">
           <ProductStockInfo
