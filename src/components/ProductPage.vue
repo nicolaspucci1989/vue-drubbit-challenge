@@ -23,12 +23,10 @@
             :prev-price="150774.45"
             :price="120619.56"
         />
-        <div>
-          <v-icon>
-            mdi-check
-          </v-icon>
-          Disponible en stock
-        </div>
+       <ProductStockInfo
+           availability="inStock"
+           class="py-1"
+       />
         <div>
           <v-icon>
             mdi-credit-card
@@ -70,6 +68,7 @@ import ProductQuantityCounter from "@/components/ProductQuantityCounter";
 import ProductPrice from "@/components/ProductPrice";
 import ProductPageBreadcrumbs from "@/components/ProductPageBreadcrumbs";
 import ProductInfo from "@/components/ProductInfo";
+import ProductStockInfo from "@/components/ProductStockInfo";
 
 export default {
   name: 'ProductPage',
@@ -80,6 +79,7 @@ export default {
     }
   },
   components: {
+    ProductStockInfo,
     ProductInfo,
     ProductPageBreadcrumbs,
     ProductPrice,
