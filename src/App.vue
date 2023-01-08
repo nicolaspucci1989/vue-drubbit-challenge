@@ -27,15 +27,16 @@
           </v-icon>
           Categorías
         </v-btn>
-        <div class="search-input">
-          <v-text-field background-color="white" light full-width rounded label="¿Qué estás buscando?">
-            <template v-slot:append>
-              <v-btn color="deep-purple lighten-2">
-                <v-icon>mdi-magnify</v-icon>
-              </v-btn>
-            </template>
-          </v-text-field>
+
+        <div class="search-input d-none rounded-lg v-text-field--full-width white d-md-flex align-center">
+          <v-text-field rounded label="¿Qué estás buscando?" light/>
+          <v-btn height="100%" style="position: relative; right: -5px" class="deep-purple lighten-2 rounded-lg rounded-tl-0">
+            <v-icon>
+              mdi-magnify
+            </v-icon>
+          </v-btn>
         </div>
+
         <div class="d-flex">
           <v-btn icon>
             <v-icon large>
