@@ -3,5 +3,8 @@ const BASE_URL = 'https://materialesbasualdo.com.ar/api'
 
 export async function getProduct(id) {
   const response = await fetch(`${BASE_URL}/catalog/product/${id}`)
-  return await response.json()
+  const json = await response.json()
+  const data = json.data
+  console.log(data)
+  return data
 }

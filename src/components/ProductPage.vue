@@ -4,10 +4,10 @@
       <!--Desktop view-->
       <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
         <ProductDescription
-            :description="description"
+            :product="productData.product"
         />
         <ProductAttributesList
-            :attributes="attributes"
+            :product="productData.product"
         />
       </v-col>
 
@@ -45,10 +45,10 @@
       <!-- Mobile View-->
       <v-col cols="12" md="7" v-if="$vuetify.breakpoint.smAndDown">
         <ProductDescription
-            :description="product.description"
+            :product="productData.product"
         />
         <ProductAttributesList
-            :attributes="product.attributes"
+            :product="productData.product"
         />
       </v-col>
     </v-row>
@@ -58,6 +58,7 @@
 </template>
 
 <script>
+/* eslint-disable */
 import RelatedProducts from "@/components/RelatedProducts";
 import ProductAttributesList from "@/components/ProductAttributesList";
 import ProductDescription from "@/components/ProductDescription";
@@ -91,17 +92,5 @@ export default {
     ProductAttributesList,
     RelatedProducts
   },
-  data: () => ({}),
-  computed: {
-    product() {
-      return this.productData.data.product
-    },
-    description() {
-      return this.product.info.templateData.description
-    },
-    attributes() {
-      return this.product.attrs.map(atr => ({id: atr.id, name: atr.attrKey.k, value: atr.v}))
-    }
-  }
 }
 </script>
