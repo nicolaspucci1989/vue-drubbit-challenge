@@ -1,9 +1,14 @@
 <template>
   <v-footer class="footer white--text justify-center pt-16">
     <v-container>
-     <FooterCompanyContact/>
       <v-row>
-        <v-col cols="12" v-for="linkData in links" :key="linkData.title">
+      <FooterCompanyContact/>
+        <v-col
+            cols="12"
+            md="2"
+            v-for="linkData in links"
+            :key="linkData.title"
+        >
           <FooterLinkList
               v-bind="linkData"
           />
