@@ -1,6 +1,16 @@
 <template>
   <v-container>
     <v-row>
+      <!--Desktop view-->
+      <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
+        <ProductDescription
+            :description="product.description"
+        />
+        <ProductAttributesList
+            :attributes="product.attributes"
+        />
+      </v-col>
+
       <v-col cols="12" md="5">
         <ProductPageBreadcrumbs/>
         <ProductInfo/>
@@ -31,7 +41,8 @@
         <ProductDeliveryInfoGroup/>
       </v-col>
 
-      <v-col cols="12" md="7">
+      <!-- Mobile View-->
+      <v-col cols="12" md="7" v-if="$vuetify.breakpoint.smAndDown">
         <ProductDescription
             :description="product.description"
         />
