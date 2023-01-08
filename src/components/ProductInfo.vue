@@ -26,17 +26,20 @@
 export default {
   name: "ProductInfo",
   props: {
-    description: {
-      type: String,
+    product: {
+      type: Object,
       required: true
+    }
+  },
+  computed: {
+    description() {
+      return this.product.name
     },
-    sku: {
-      type: String,
-      required: true
+    brand() {
+      return this.product.brand.name
     },
-    brand: {
-      type: String,
-      required: true
+    sku() {
+      return this.product.variants[0].sku
     }
   }
 }
