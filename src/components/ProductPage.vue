@@ -28,9 +28,9 @@
         </div>
         <div class="py-3" style="border-top: 1px solid #e0e0e0">
           <ProductQuantityCounter :max="3"/>
-          <div class="font-weight-thin text--secondary my-3">
-            3 Unidades disponibles
-          </div>
+          <ProductStockCount
+              :product="productData.product"
+          />
           <BuyButton/>
         </div>
         <v-divider class="mt-6"/>
@@ -66,6 +66,7 @@ import ProductPageBreadcrumbs from "@/components/ProductPageBreadcrumbs";
 import ProductInfo from "@/components/ProductInfo";
 import ProductStockInfo from "@/components/ProductStockInfo";
 import ProductPaymentOptions from "@/components/ProductPaymentOptions";
+import ProductStockCount from "@/components/ProductStockCount";
 
 export default {
   name: 'ProductPage',
@@ -76,6 +77,7 @@ export default {
     }
   },
   components: {
+    ProductStockCount,
     ProductPaymentOptions,
     ProductStockInfo,
     ProductInfo,
