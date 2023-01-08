@@ -1,40 +1,46 @@
 <template>
   <v-container>
-    <ProductPageBreadcrumbs/>
-    <ProductInfo/>
-    <ProductPrice
-        :discount-pct="20"
-        :prev-price="150774.45"
-        :price="120619.56"
-    />
-    <div>
-      <v-icon>
-        mdi-check
-      </v-icon>
-      Disponible en stock
-    </div>
-    <div>
-      <v-icon>
-        mdi-credit-card
-      </v-icon>
-      Hasta 18 cuotas sin interes
-    </div>
-    <ProductQuantityCounter :max="3"/>
-    <div class="font-weight-thin text--secondary my-3">
-      3 Unidades disponibles
-    </div>
-    <BuyButton/>
-    <v-divider class="mt-6"/>
+    <v-row>
+      <v-col cols="12" md="5">
+        <ProductPageBreadcrumbs/>
+        <ProductInfo/>
+        <ProductPrice
+            :discount-pct="20"
+            :prev-price="150774.45"
+            :price="120619.56"
+        />
+        <div>
+          <v-icon>
+            mdi-check
+          </v-icon>
+          Disponible en stock
+        </div>
+        <div>
+          <v-icon>
+            mdi-credit-card
+          </v-icon>
+          Hasta 18 cuotas sin interes
+        </div>
+        <ProductQuantityCounter :max="3"/>
+        <div class="font-weight-thin text--secondary my-3">
+          3 Unidades disponibles
+        </div>
+        <BuyButton/>
+        <v-divider class="mt-6"/>
 
-    <ProductDeliveryInfoGroup/>
+        <ProductDeliveryInfoGroup/>
+      </v-col>
 
-    <ProductDescription
-        :description="product.description"
-    />
+      <v-col cols="12" md="7">
+        <ProductDescription
+            :description="product.description"
+        />
+        <ProductAttributesList
+            :attributes="product.attributes"
+        />
+      </v-col>
+    </v-row>
 
-    <ProductAttributesList
-        :attributes="product.attributes"
-    />
     <RelatedProducts/>
   </v-container>
 </template>
