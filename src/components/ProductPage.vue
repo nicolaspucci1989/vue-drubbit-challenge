@@ -13,7 +13,11 @@
 
       <v-col cols="12" md="5">
         <ProductPageBreadcrumbs/>
-        <ProductInfo/>
+        <ProductInfo
+            description="Inodoro Corto Ihcmjb Ferrum Marina"
+            brand="Ferrum"
+            sku="FER00048"
+        />
         <ProductPrice
             :discount-pct="20"
             :prev-price="150774.45"
