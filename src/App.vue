@@ -38,9 +38,14 @@
         </div>
 
         <div class="d-flex">
-          <v-btn icon>
+          <v-btn icon class="d-md-none">
             <v-icon large>
               mdi-magnify
+            </v-icon>
+          </v-btn>
+          <v-btn icon class="d-none d-md-block">
+            <v-icon large>
+              mdi-account
             </v-icon>
           </v-btn>
           <v-btn icon>
