@@ -4,6 +4,7 @@
     <ul class="pl-0">
       <li class="mb-2" v-for="(item, index) in items" :key="index">{{item}}</li>
     </ul>
+    <slot></slot>
   </div>
 </template>
 
