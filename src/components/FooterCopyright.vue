@@ -1,9 +1,8 @@
 <template>
-  <v-col class="text-center border-top pb-0">
-    <v-col class="pb-0">Todos los derechos reservados © Basulado</v-col>
-    <v-col class="pb-0"> Desarrollado por <a class="text-decoration-underline" href="https://drubbit.com/"> Drubbit </a>
-    </v-col>
-  </v-col>
+  <div class="d-flex flex-column flex-md-row justify-md-space-between text-center border-top pb-0 pt-4">
+    <div class="mb-4 mb-md-0">Todos los derechos reservados © Basulado</div>
+    <div class=""> Desarrollado por <a class="text-decoration-underline" href="https://drubbit.com/"> Drubbit </a></div>
+  </div>
 </template>
 
 <script>
