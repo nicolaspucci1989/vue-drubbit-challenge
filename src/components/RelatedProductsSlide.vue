@@ -4,16 +4,17 @@
       max-width="800"
   >
     <v-slide-group
-        v-model="model"
         class="pa-4"
         active-class="success"
     >
       <v-slide-item
-          v-for="n in 15"
-          :key="n"
+          v-for="product in products"
+          :key="product.id"
           class="py-1 px-2"
       >
-        <RelatedProductCard/>
+        <RelatedProductCard
+          :product="product"
+        />
       </v-slide-item>
     </v-slide-group>
   </v-sheet>
@@ -24,9 +25,12 @@ import RelatedProductCard from "@/components/RelatedProductCard";
 export default {
   name: "RelatedProductsSlide",
   components: { RelatedProductCard },
-  data: () => ({
-    model: null,
-  }),
+  props: {
+    products: {
+      type: Array,
+      required: true
+    }
+  },
 }
 </script>
 

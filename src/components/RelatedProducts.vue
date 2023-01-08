@@ -3,7 +3,9 @@
     <h1 class="underline text-uppercase font-weight-medium text-center pb-1">
       Tambien te puede interesar
     </h1>
-    <RelatedProductsSlide/>
+    <RelatedProductsSlide
+        :products="products"
+    />
   </v-container>
 </template>
 
@@ -11,7 +13,13 @@
 import RelatedProductsSlide from "@/components/RelatedProductsSlide";
 export default {
   name: "RelatedProducts",
-  components: { RelatedProductsSlide }
+  components: { RelatedProductsSlide },
+  props: {
+    products: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
 

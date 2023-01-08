@@ -49,7 +49,10 @@
       </v-col>
     </v-row>
 
-    <RelatedProducts/>
+    <RelatedProducts
+        v-if="productData.relatedProducts.length > 0"
+        :products="productData.relatedProducts"
+    />
   </v-container>
 </template>
 
@@ -73,7 +76,11 @@ export default {
   props: {
     productData: {
       type: Object,
-      required: true
+      required: true,
+      validator(val) {
+        return 'product' in val && 'relatedProducts' in val
+        && Array.isArray(val.relatedProducts)
+      }
     }
   },
   components: {

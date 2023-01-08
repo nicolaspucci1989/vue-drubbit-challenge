@@ -1,6 +1,5 @@
 <template>
   <v-card
-      :loading="loading"
       flat
       class="mx-auto my-12"
       max-width="250"
@@ -30,7 +29,7 @@
           $ 18.234,23
         </div>
       </div>
-      <div> Columna Mayo - Andina - Florencia - Traful - Olivos Ctfb Ferrum</div>
+      <div>{{ name }}</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
@@ -39,7 +38,6 @@
       <v-btn
           color="black lighten-2"
           text
-          @click="reserve"
           icon
       >
         <v-icon>mdi-cart-outline</v-icon>
@@ -51,18 +49,18 @@
 
 <script>
 export default {
-  data: () => ({
-    loading: false,
-    selection: 1,
-  }),
-
-  methods: {
-    reserve() {
-      this.loading = true
-
-      setTimeout(() => (this.loading = false), 2000)
-    },
+  name: "RelatedProductCard",
+  props: {
+    product: {
+      type: Object,
+      required: true
+    }
   },
+  computed: {
+    name() {
+      return this.product.name
+    }
+  }
 }
 </script>
 
