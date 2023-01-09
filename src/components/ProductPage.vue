@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <v-container class="px-8 white">
+    <v-container class="px-8 white" style="max-width: 1247px">
       <v-row>
         <!--Desktop view-->
         <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
