@@ -18,6 +18,7 @@
         />
         <ProductPrice
             :product="productData.product"
+            discount
         />
         <div class="pt-2 pb-3">
           <ProductStockInfo

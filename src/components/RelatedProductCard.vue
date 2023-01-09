@@ -10,7 +10,7 @@
     >
       <div
           class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
-        -20%
+        -{{discount}}%
       </div>
       <div class="float-right d-flex align-center justify-center">
         <v-icon>
@@ -21,14 +21,7 @@
 
 
     <v-card-text>
-      <div>
-        <div class="grey--text ms-3 text-decoration-line-through">
-          $ 82.234,23
-        </div>
-        <div class="black--text grey--text ms-3 text-h6">
-          $ 18.234,23
-        </div>
-      </div>
+      <ProductPrice small :product="product"/>
       <div>{{ name }}</div>
     </v-card-text>
 
@@ -48,8 +41,10 @@
 </template>
 
 <script>
+import ProductPrice from "@/components/ProductPrice";
 export default {
   name: "RelatedProductCard",
+  components: { ProductPrice },
   props: {
     product: {
       type: Object,
@@ -59,6 +54,9 @@ export default {
   computed: {
     name() {
       return this.product.name
+    },
+    discount() {
+      return this.product.variants[0].pvPrice.discountPct
     }
   }
 }
