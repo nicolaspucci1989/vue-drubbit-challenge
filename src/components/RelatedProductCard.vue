@@ -6,7 +6,7 @@
   >
     <v-img
         width="300"
-        src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/44d1d87cd0e622a1f800bbc46dd1aac2ff3143d6.jpg.webp"
+        :src="image"
     >
       <div
           class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
@@ -57,6 +57,9 @@ export default {
     },
     discount() {
       return this.product.variants[0].pvPrice.discountPct
+    },
+    image() {
+      return this.product.images[0].square.fullUrl
     }
   }
 }
