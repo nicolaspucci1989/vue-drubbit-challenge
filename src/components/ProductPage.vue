@@ -1,60 +1,65 @@
 <template>
-  <v-container class="px-8 white">
-    <v-row>
-      <!--Desktop view-->
-      <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
-        <ProductDescription
-            :product="productData.product"
-        />
-        <ProductAttributesList
-            :product="productData.product"
-        />
-      </v-col>
+  <div>
 
-      <v-col cols="12" md="5">
-        <ProductPageBreadcrumbs/>
-        <ProductInfo
-            :product="productData.product"
-        />
-        <ProductPrice
-            :product="productData.product"
-            discount
-        />
-        <div class="pt-2 pb-3">
-          <ProductStockInfo
-              :product="productData.product"
-              class="py-1"
-          />
-          <ProductPaymentOptions class="mt-2"/>
-        </div>
-        <div class="py-3" style="border-top: 1px solid #e0e0e0">
-          <ProductQuantityCounter :product="productData.product"/>
-          <ProductStockCount
+    <v-container class="px-8 white">
+      <v-row>
+        <!--Desktop view-->
+        <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
+          <ProductDescription
               :product="productData.product"
           />
-          <BuyButton/>
-        </div>
-        <v-divider class="mt-6"/>
+          <ProductAttributesList
+              :product="productData.product"
+          />
+        </v-col>
 
-        <ProductDeliveryInfoGroup/>
-      </v-col>
+        <v-col cols="12" md="5">
+          <ProductPageBreadcrumbs/>
+          <ProductInfo
+              :product="productData.product"
+          />
+          <ProductPrice
+              :product="productData.product"
+              discount
+          />
+          <div class="pt-2 pb-3">
+            <ProductStockInfo
+                :product="productData.product"
+                class="py-1"
+            />
+            <ProductPaymentOptions class="mt-2"/>
+          </div>
+          <div class="py-3" style="border-top: 1px solid #e0e0e0">
+            <ProductQuantityCounter :product="productData.product"/>
+            <ProductStockCount
+                :product="productData.product"
+            />
+            <BuyButton/>
+          </div>
+          <v-divider class="mt-6"/>
 
-      <!-- Mobile View-->
-      <v-col cols="12" md="7" v-if="$vuetify.breakpoint.smAndDown">
-        <ProductDescription
-            :product="productData.product"
-        />
-        <ProductAttributesList
-            :product="productData.product"
-        />
-      </v-col>
-    </v-row>
+          <ProductDeliveryInfoGroup/>
+        </v-col>
 
-    <RelatedProducts
-        v-if="productData.relatedProducts.length > 0"
-        :products="productData.relatedProducts"
-    />
-  </v-container>
+        <!-- Mobile View-->
+        <v-col cols="12" md="7" v-if="$vuetify.breakpoint.smAndDown">
+          <ProductDescription
+              :product="productData.product"
+          />
+          <ProductAttributesList
+              :product="productData.product"
+          />
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container class="py-12">
+      <RelatedProducts
+          v-if="productData.relatedProducts.length > 0"
+          :products="productData.relatedProducts"
+      />
+    </v-container>
+  </div>
+
 </template>
 
 <script>
@@ -79,7 +84,7 @@ export default {
       required: true,
       validator(val) {
         return 'product' in val && 'relatedProducts' in val
-        && Array.isArray(val.relatedProducts)
+            && Array.isArray(val.relatedProducts)
       }
     }
   },
