@@ -1,34 +1,21 @@
 <template>
   <div>
-      <Flicking
-          :options="options"
-      >
-        <div
-            v-for="image in images"
-            :key="image.id"
-        >
-          <v-img :src="image.fullUrl"/>
-        </div>
-      </Flicking>
-
-<!--    <Flicking-->
-<!--        ref="flicking1"-->
-<!--        :options="{ bound: true, bounce: 30, moveType: 'freeScroll' }"-->
-<!--    >-->
-<!--      <div-->
-<!--          class="flicking-panel thumb has-background-primary"-->
-<!--          v-for="image in images"-->
-<!--          :key="image.id"-->
-<!--      >-->
-<!--        <img class="thumb-image" :src="image.fullUrl"/>-->
-<!--      </div>-->
-<!--    </Flicking>-->
+    <Flicking
+        ref="flicking"
+        :options="options"
+        v-if="images.length > 0"
+    >
+      <v-img
+          v-for="image in images"
+          :key="image.id"
+          :src="image.fullUrl"
+      />
+    </Flicking>
   </div>
 </template>
 
 <script>
-import { Flicking } from "@egjs/vue-flicking";
-// import { Sync } from "@egjs/flicking-plugins";
+import {Flicking} from "@egjs/vue-flicking";
 
 export default {
   name: "ProductImageGallery",
@@ -47,34 +34,21 @@ export default {
       options: {
         align: 'prev'
       },
-      plugins: []
     }
+  },
+  mounted() {
+    // do this to avoid starting with last image
+    this.$refs.flicking.moveTo(0)
   },
   computed: {
     images() {
       return this.product.images.map(i => i.medium)
     }
   },
-  // mounted() {
-  //   this.plugins = [new Sync({
-  //     type: "index",
-  //     synchronizedFlickingOptions: [
-  //       {
-  //         flicking: this.$refs.flicking0,
-  //         isSlidable: true
-  //       },
-  //       {
-  //         flicking: this.$refs.flicking1,
-  //         isClickable: true,
-  //         activeClass: "active"
-  //       }
-  //     ]
-  //   })];
-  // }
 }
 </script>
 
-<style scoped lang="sass">
+<style lang="sass">
 @import url("@egjs/vue-flicking/dist/flicking.css")
 
 </style>
