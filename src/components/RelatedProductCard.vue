@@ -3,20 +3,29 @@
       flat
       max-width="250"
   >
+    <div
+        class="white--text discount-percent rounded rounded-bl-0 rounded-tr-0 py-3 px-2 font-weight-bold float-left">
+      -{{ discountPct }}%
+    </div>
+    <div class="float-right d-flex align-center justify-center">
+      <v-icon>
+        mdi-heart-outline
+      </v-icon>
+    </div>
+
     <v-img
         width="300"
         :src="image"
     >
-      <div
-          class="white--text discount-percent rounded rounded-bl-0 rounded-tr-0 py-3 px-2 font-weight-bold float-left">
-        -{{ discountPct }}%
-      </div>
-      <div class="float-right d-flex align-center justify-center">
-        <v-icon>
-          mdi-heart-outline
-        </v-icon>
-      </div>
+      <v-img
+          width="300"
+          :src="secondaryImage"
+          class="secondary-image"
+      >
+
+      </v-img>
     </v-img>
+
 
 
     <v-card-text>
@@ -58,6 +67,9 @@ export default {
     },
     image() {
       return this.product.images[0].square.fullUrl
+    },
+    secondaryImage() {
+      return this.product.images[1].square.fullUrl
     }
   }
 }
@@ -67,4 +79,10 @@ export default {
 .discount-percent
   background-color: #9980ce
   font-size: 1.4rem
+
+.secondary-image
+  opacity: 0
+  transition: all .3s
+  &:hover
+    opacity: 1
 </style>
