@@ -9,7 +9,7 @@
         :src="image"
     >
       <div
-          class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
+          class="white--text discount-percent rounded rounded-bl-0 rounded-tr-0 py-3 px-2 font-weight-bold float-left">
         -{{ discountPct }}%
       </div>
       <div class="float-right d-flex align-center justify-center">
@@ -64,6 +64,8 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="sass">
+.discount-percent
+  background-color: #9980ce
+  font-size: 1.4rem
 </style>
