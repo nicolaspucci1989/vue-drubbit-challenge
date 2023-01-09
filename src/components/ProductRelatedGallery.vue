@@ -30,7 +30,7 @@
 import { Flicking } from "@egjs/vue-flicking";
 
 export default {
-  name: "ProductImageGallery",
+  name: "ProductRelatedGallery",
   components: { Flicking },
   data() {
     return {
