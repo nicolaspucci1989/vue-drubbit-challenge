@@ -1,37 +1,52 @@
 <template>
-  <div>
-    <Flicking
-        ref="flicking0"
-        :options="optionsBig"
-        v-if="images.length > 0"
-        :plugins="plugins"
+  <v-row>
+
+    <v-col
+        cols="1"
+        v-if="$vuetify.breakpoint.smAndUp"
     >
-      <v-img
-          class="flicking-panel"
-          v-for="image in images"
-          :key="image.id"
-          :src="image.fullUrl"
-      />
-    </Flicking>
-    <Flicking
-        ref="flicking1"
-        :options="optionsSmall"
-        v-if="images.length > 0"
-    >
-      <v-img
-          class="flicking-panel thumb mx-2"
-          v-for="(thumb, i) in thumbs"
-          :key="thumb.id"
-          :src="thumb.fullUrl"
-          @mouseover="onMouseOverThumb(i)"
-      />
-    </Flicking>
-  </div>
+      <Flicking
+          class="flicking-viewport"
+          ref="flicking1"
+          :options="optionsSmall"
+          v-if="images.length > 0"
+      >
+        <v-img
+            class="flicking-panel thumb my-1"
+            v-for="(thumb, i) in thumbs"
+            :key="thumb.id"
+            :src="thumb.fullUrl"
+            @mouseover="onMouseOverThumb(i)"
+        />
+      </Flicking>
+    </v-col>
+
+
+    <v-col cols="11">
+
+      <Flicking
+          class="flicking-viewport"
+          ref="flicking0"
+          :options="optionsBig"
+          v-if="images.length > 0"
+          :plugins="plugins"
+      >
+        <v-img
+            class="flicking-pane"
+            style="min-height: 0; max-width: 100%"
+            v-for="image in images"
+            :key="image.id"
+            :src="image.fullUrl"
+        />
+      </Flicking>
+    </v-col>
+
+  </v-row>
 </template>
 
 <script>
 import {Flicking} from "@egjs/vue-flicking";
-import { Sync } from "@egjs/flicking-plugins";
+import {Sync} from "@egjs/flicking-plugins";
 
 export default {
   name: "ProductImageGallery",
@@ -56,6 +71,7 @@ export default {
         bound: true,
         bounce: 30,
         moveType: 'freeScroll',
+        horizontal: false
       },
       plugins: []
     }
