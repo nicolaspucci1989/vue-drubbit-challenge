@@ -10,7 +10,7 @@
     >
       <div
           class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
-        -{{discount}}%
+        -{{ discountPct }}%
       </div>
       <div class="float-right d-flex align-center justify-center">
         <v-icon>
@@ -42,9 +42,11 @@
 
 <script>
 import ProductPrice from "@/components/ProductPrice";
+import { product } from "@/mixins/product";
 export default {
   name: "RelatedProductCard",
   components: { ProductPrice },
+  mixins: [product],
   props: {
     product: {
       type: Object,
@@ -54,9 +56,6 @@ export default {
   computed: {
     name() {
       return this.product.name
-    },
-    discount() {
-      return this.product.variants[0].pvPrice.discountPct
     },
     image() {
       return this.product.images[0].square.fullUrl

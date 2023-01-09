@@ -22,9 +22,11 @@
 
 <script>
 import { numberFormat } from "@/util";
+import { product } from "@/mixins/product";
 
 export default {
   name: "ProductPrice",
+  mixins: [product],
   props: {
     product: {
       type: Object,
@@ -64,9 +66,6 @@ export default {
     },
     prevPrice() {
       return this.pvPrice.prevPrice
-    },
-    discountPct() {
-      return this.pvPrice.discountPct
     },
     wholePrice() {
       return this.getWholePart(this.price)
