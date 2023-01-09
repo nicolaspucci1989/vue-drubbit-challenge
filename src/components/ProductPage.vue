@@ -14,6 +14,9 @@
         </v-col>
 
         <v-col cols="12" md="5">
+          <ProductImageGallery
+              :product="productData.product"
+          />
           <ProductPageBreadcrumbs/>
           <ProductInfo
               :product="productData.product"
@@ -75,6 +78,7 @@ import ProductInfo from "@/components/ProductInfo";
 import ProductStockInfo from "@/components/ProductStockInfo";
 import ProductPaymentOptions from "@/components/ProductPaymentOptions";
 import ProductStockCount from "@/components/ProductStockCount";
+import ProductImageGallery from "@/components/ProductImageGallery.vue";
 
 export default {
   name: 'ProductPage',
@@ -89,6 +93,7 @@ export default {
     }
   },
   components: {
+    ProductImageGallery,
     ProductStockCount,
     ProductPaymentOptions,
     ProductStockInfo,
