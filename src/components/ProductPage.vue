@@ -58,7 +58,6 @@
 </template>
 
 <script>
-/* eslint-disable */
 import RelatedProducts from "@/components/RelatedProducts";
 import ProductAttributesList from "@/components/ProductAttributesList";
 import ProductDescription from "@/components/ProductDescription";
