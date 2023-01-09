@@ -32,13 +32,11 @@ export default {
   data() {
     return {
       options: {
-        align: 'prev'
+        panelsPerView: 1,
+        defaultIndex: 0,
+        align: 'center'
       },
     }
-  },
-  mounted() {
-    // do this to avoid starting with last image
-    this.$refs.flicking.moveTo(0)
   },
   computed: {
     images() {
