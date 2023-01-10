@@ -1,60 +1,89 @@
 <template>
-  <v-container class="px-8 white">
-    <v-row>
-      <!--Desktop view-->
-      <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
-        <ProductDescription
-            :product="productData.product"
-        />
-        <ProductAttributesList
-            :product="productData.product"
-        />
-      </v-col>
+  <div>
 
-      <v-col cols="12" md="5">
-        <ProductPageBreadcrumbs/>
-        <ProductInfo
-            :product="productData.product"
-        />
-        <ProductPrice
-            :product="productData.product"
-        />
-        <div class="pt-2 pb-3">
-          <ProductStockInfo
+    <v-container class="px-8 white" style="max-width: 1247px">
+      <v-row>
+        <!--Desktop view-->
+        <v-col
+            cols="12"
+            md="7"
+            class="pa-12"
+            v-if="$vuetify.breakpoint.mdAndUp"
+        >
+          <ProductImageGallery
               :product="productData.product"
-              class="py-1"
+              v-if="$vuetify.breakpoint.mdAndUp"
           />
-          <ProductPaymentOptions class="mt-2"/>
-        </div>
-        <div class="py-3" style="border-top: 1px solid #e0e0e0">
-          <ProductQuantityCounter :product="productData.product"/>
-          <ProductStockCount
+          <ProductDescription
               :product="productData.product"
           />
-          <BuyButton/>
-        </div>
-        <v-divider class="mt-6"/>
+          <ProductAttributesList
+              :product="productData.product"
+          />
+        </v-col>
 
-        <ProductDeliveryInfoGroup/>
-      </v-col>
+        <v-col cols="12" md="5">
+          <ProductImageGallery
+              :product="productData.product"
+              v-if="$vuetify.breakpoint.smAndDown"
+          />
+          <ProductPageBreadcrumbs/>
+          <ProductInfo
+              :product="productData.product"
+          />
+          <ProductPrice
+              :product="productData.product"
+              discount
+          />
+          <div class="pt-2 pb-3">
+            <ProductStockInfo
+                :product="productData.product"
+                class="py-1"
+            />
+            <ProductPaymentOptions class="mt-2"/>
+          </div>
+          <div class="py-3" style="border-top: 1px solid #e0e0e0">
+            <ProductQuantityCounter
+                :product="productData.product"
+            />
+            <ProductStockCount
+                :product="productData.product"
+            />
+            <BuyButton/>
+          </div>
 
-      <!-- Mobile View-->
-      <v-col cols="12" md="7" v-if="$vuetify.breakpoint.smAndDown">
-        <ProductDescription
-            :product="productData.product"
-        />
-        <ProductAttributesList
-            :product="productData.product"
-        />
-      </v-col>
-    </v-row>
+          <v-divider class="mt-6"/>
 
-    <RelatedProducts/>
-  </v-container>
+          <ProductDeliveryInfoGroup/>
+        </v-col>
+
+        <!-- Mobile View-->
+        <v-col
+            cols="12"
+            md="7"
+            class="pa-12"
+            v-if="$vuetify.breakpoint.smAndDown"
+        >
+          <ProductDescription
+              :product="productData.product"
+          />
+          <ProductAttributesList
+              :product="productData.product"
+          />
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container class="py-12">
+      <RelatedProducts
+          v-if="productData.relatedProducts.length > 0"
+          :products="productData.relatedProducts"
+      />
+    </v-container>
+  </div>
+
 </template>
 
 <script>
-/* eslint-disable */
 import RelatedProducts from "@/components/RelatedProducts";
 import ProductAttributesList from "@/components/ProductAttributesList";
 import ProductDescription from "@/components/ProductDescription";
@@ -67,16 +96,22 @@ import ProductInfo from "@/components/ProductInfo";
 import ProductStockInfo from "@/components/ProductStockInfo";
 import ProductPaymentOptions from "@/components/ProductPaymentOptions";
 import ProductStockCount from "@/components/ProductStockCount";
+import ProductImageGallery from "@/components/ProductImageGallery.vue";
 
 export default {
   name: 'ProductPage',
   props: {
     productData: {
       type: Object,
-      required: true
+      required: true,
+      validator(val) {
+        return 'product' in val && 'relatedProducts' in val
+            && Array.isArray(val.relatedProducts)
+      }
     }
   },
   components: {
+    ProductImageGallery,
     ProductStockCount,
     ProductPaymentOptions,
     ProductStockInfo,

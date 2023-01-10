@@ -1,9 +1,9 @@
 <template>
-  <v-col cols="6">
-    <div class="font-weight-bold text-uppercase font-0 quarter--text">
+  <v-col cols="6" sm="4" md="3">
+    <div class="font-weight-bold text-uppercase" style="font-size: .8rem">
     {{ name }}
     </div>
-    <div class="pt-1">
+    <div class="pt-1 text-subtitle-2">
       {{ value }}
     </div>
   </v-col>

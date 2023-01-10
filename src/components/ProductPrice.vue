@@ -1,14 +1,20 @@
 <template>
   <div>
-    <div class="grey--text text-decoration-line-through" v-if="prevPrice">
-      <span class="mr-1">$</span>{{wholePrevPrice}}<sup>{{decimalPrevPrice}}</sup>
+    <div
+        class="grey--text text-decoration-line-through"
+        v-if="prevPrice"
+    >
+      <span class="mr-1">$</span>{{ wholePrevPrice }}<sup>{{ decimalPrevPrice }}</sup>
     </div>
     <div class="d-flex align-center">
-      <span style="font-size: 1.9rem" class="font-weight-medium">
-        <span class="mr-1">$</span>{{wholePrice}}<sup style="font-size: 60%">{{decimalPrice}}</sup>
+      <span
+          class="font-weight-medium font-size-regular"
+          :class="{'font-size-small': small}"
+      >
+        <span class="mr-1">$</span>{{ wholePrice }}<sup style="font-size: 60%">{{ decimalPrice }}</sup>
       </span>
-      <span class="red--text font-weight-bold text-subtitle-2 ml-2" v-if="discountPct">
-          {{discountPct}}% OFF
+      <span class="red--text font-weight-bold text-subtitle-2 ml-2" v-if="discount">
+          {{ discountPct }}% OFF
         </span>
     </div>
   </div>
@@ -16,9 +22,11 @@
 
 <script>
 import { numberFormat } from "@/util";
+import { product } from "@/mixins/product";
 
 export default {
   name: "ProductPrice",
+  mixins: [product],
   props: {
     product: {
       type: Object,
@@ -27,6 +35,16 @@ export default {
         return 'variants' in val && Array.isArray(val.variants)
       }
     },
+    discount: {
+      type: Boolean,
+      required: false,
+      default: false
+    },
+    small: {
+      type: Boolean,
+      required: false,
+      default: false
+    }
   },
   methods: {
     formatNumber(number) {
@@ -49,9 +67,6 @@ export default {
     prevPrice() {
       return this.pvPrice.prevPrice
     },
-    discountPct() {
-      return this.pvPrice.discountPct
-    },
     wholePrice() {
       return this.getWholePart(this.price)
     },
@@ -68,6 +83,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+.font-size-regular
+  font-size: 1.9rem
 
+.font-size-small
+  font-size: 1.3rem
 </style>

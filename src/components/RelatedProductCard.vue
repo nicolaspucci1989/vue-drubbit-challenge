@@ -1,45 +1,46 @@
 <template>
   <v-card
-      :loading="loading"
       flat
-      class="mx-auto my-12"
       max-width="250"
+      class="cursor-pointer"
+      @click="goToProduct"
   >
+    <div
+        class="white--text discount-percent rounded rounded-bl-0 rounded-tr-0 py-3 px-2 font-weight-bold float-left">
+      -{{ discountPct }}%
+    </div>
+    <div class="float-right d-flex align-center justify-center">
+      <v-icon>
+        mdi-heart-outline
+      </v-icon>
+    </div>
+
     <v-img
         width="300"
-        src="https://d3owgox48n6bqy.cloudfront.net/basualdo/uploads/44d1d87cd0e622a1f800bbc46dd1aac2ff3143d6.jpg.webp"
+        :src="image"
     >
-      <div
-          class="text--white rounded rounded-bl-0 rounded-tr-0 subtitle-1 pa-3 font-weight-bold purple lighten-4 float-left">
-        -20%
-      </div>
-      <div class="float-right d-flex align-center justify-center">
-        <v-icon>
-          mdi-heart-outline
-        </v-icon>
-      </div>
+      <v-img
+          v-if="hasMultipleImages"
+          width="300"
+          :src="secondaryImage"
+          class="secondary-image"
+      >
+      </v-img>
     </v-img>
 
-
     <v-card-text>
-      <div>
-        <div class="grey--text ms-3 text-decoration-line-through">
-          $ 82.234,23
-        </div>
-        <div class="black--text grey--text ms-3 text-h6">
-          $ 18.234,23
-        </div>
-      </div>
-      <div> Columna Mayo - Andina - Florencia - Traful - Olivos Ctfb Ferrum</div>
+      <ProductPrice small :product="product"/>
+      <div>{{ name }}</div>
     </v-card-text>
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-card-actions class="d-flex justify-center">
+    <v-card-actions
+        class="d-flex justify-center"
+    >
       <v-btn
           color="black lighten-2"
           text
-          @click="reserve"
           icon
       >
         <v-icon>mdi-cart-outline</v-icon>
@@ -50,22 +51,53 @@
 </template>
 
 <script>
+import ProductPrice from "@/components/ProductPrice";
+import { product } from "@/mixins/product";
 export default {
-  data: () => ({
-    loading: false,
-    selection: 1,
-  }),
-
-  methods: {
-    reserve() {
-      this.loading = true
-
-      setTimeout(() => (this.loading = false), 2000)
-    },
+  name: "RelatedProductCard",
+  components: { ProductPrice },
+  mixins: [product],
+  props: {
+    product: {
+      type: Object,
+      required: true
+    }
   },
+  methods: {
+    goToProduct() {
+      // TODO: go to product route
+      console.log(this.productUrlName)
+    }
+  },
+  computed: {
+    name() {
+      return this.product.name
+    },
+    image() {
+      return this.product.images[0].square.fullUrl
+    },
+    secondaryImage() {
+      return this.product.images[1].square.fullUrl
+    },
+    hasMultipleImages() {
+      return this.product.images.length > 1
+    },
+    productUrlName() {
+      return this.product.urlName
+    },
+
+  }
 }
 </script>
 
-<style scoped>
+<style scoped lang="sass">
+.discount-percent
+  background-color: #9980ce
+  font-size: 1.4rem
 
+.secondary-image
+  opacity: 0
+  transition: all .3s
+  &:hover
+    opacity: 1
 </style>

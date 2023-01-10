@@ -1,17 +1,27 @@
 <template>
-  <v-container class="grey lighten-4 py-12">
+  <div>
+    <div class="d-flex justify-center">
     <h1 class="underline text-uppercase font-weight-medium text-center pb-1">
       Tambien te puede interesar
     </h1>
-    <RelatedProductsSlide/>
-  </v-container>
+    </div>
+    <RelatedProductsSlide
+        :products="products"
+    />
+  </div>
 </template>
 
 <script>
 import RelatedProductsSlide from "@/components/RelatedProductsSlide";
 export default {
   name: "RelatedProducts",
-  components: { RelatedProductsSlide }
+  components: { RelatedProductsSlide },
+  props: {
+    products: {
+      type: Array,
+      required: true
+    }
+  }
 }
 </script>
 
