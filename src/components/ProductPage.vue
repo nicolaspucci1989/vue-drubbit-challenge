@@ -46,6 +46,7 @@
             />
             <BuyButton/>
           </div>
+
           <v-divider class="mt-6"/>
 
           <ProductDeliveryInfoGroup/>
