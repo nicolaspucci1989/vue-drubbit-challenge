@@ -10,6 +10,10 @@
             class="pa-12"
             v-if="$vuetify.breakpoint.mdAndUp"
         >
+          <ProductImageGallery
+              :product="productData.product"
+              v-if="$vuetify.breakpoint.mdAndUp"
+          />
           <ProductDescription
               :product="productData.product"
           />
@@ -21,6 +25,7 @@
         <v-col cols="12" md="5">
           <ProductImageGallery
               :product="productData.product"
+              v-if="$vuetify.breakpoint.smAndDown"
           />
           <ProductPageBreadcrumbs/>
           <ProductInfo
