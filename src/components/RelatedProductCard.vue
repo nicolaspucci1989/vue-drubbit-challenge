@@ -9,7 +9,7 @@
         class="white--text discount-percent rounded rounded-bl-0 rounded-tr-0 py-3 px-2 font-weight-bold float-left">
       -{{ discountPct }}%
     </div>
-    <div class="float-right d-flex align-center justify-center">
+    <div class="float-right d-flex align-center justify-center my-5 mr-5">
       <v-icon>
         mdi-heart-outline
       </v-icon>
