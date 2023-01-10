@@ -16,16 +16,6 @@
       />
       <span slot="viewport" class="flicking-arrow-prev navigation-arrow left is-circle elevation-10"></span>
       <span slot="viewport" class="flicking-arrow-next navigation-arrow right is-circle elevation-10"></span>
-<!--      <v-btn icon class="navigation-arrow left white&#45;&#45;text" x-large elevation="10">-->
-<!--        <v-icon>-->
-<!--          mdi-chevron-left-->
-<!--        </v-icon>-->
-<!--      </v-btn>-->
-<!--      <v-btn icon class="navigation-arrow right white&#45;&#45;text" x-large elevation="10">-->
-<!--        <v-icon>-->
-<!--          mdi-chevron-right-->
-<!--        </v-icon>-->
-<!--      </v-btn>-->
     </Flicking>
   </v-sheet>
 </template>
@@ -34,7 +24,7 @@
 import RelatedProductCard from "@/components/RelatedProductCard";
 import { Flicking } from "@egjs/vue-flicking";
 import { Arrow } from "@egjs/flicking-plugins";
-const plugins = [new Arrow({})]
+
 export default {
   name: "RelatedProductsSlide",
   components: { RelatedProductCard, Flicking },
@@ -45,7 +35,14 @@ export default {
     }
   },
   data() {
-    return {plugins}
+    return {
+      plugins: []
+    }
+  },
+  mounted() {
+    this.plugins = [new Arrow({
+      disabledClass: 'd-none'
+    })]
   }
 }
 </script>
