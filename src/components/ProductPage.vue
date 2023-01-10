@@ -4,7 +4,12 @@
     <v-container class="px-8 white" style="max-width: 1247px">
       <v-row>
         <!--Desktop view-->
-        <v-col cols="12" md="7" v-if="$vuetify.breakpoint.mdAndUp">
+        <v-col
+            cols="12"
+            md="7"
+            class="pa-12"
+            v-if="$vuetify.breakpoint.mdAndUp"
+        >
           <ProductDescription
               :product="productData.product"
           />
@@ -45,7 +50,12 @@
         </v-col>
 
         <!-- Mobile View-->
-        <v-col cols="12" md="7" v-if="$vuetify.breakpoint.smAndDown">
+        <v-col
+            cols="12"
+            md="7"
+            class="pa-12"
+            v-if="$vuetify.breakpoint.smAndDown"
+        >
           <ProductDescription
               :product="productData.product"
           />
