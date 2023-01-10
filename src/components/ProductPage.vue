@@ -38,7 +38,9 @@
             <ProductPaymentOptions class="mt-2"/>
           </div>
           <div class="py-3" style="border-top: 1px solid #e0e0e0">
-            <ProductQuantityCounter :product="productData.product"/>
+            <ProductQuantityCounter
+                :product="productData.product"
+            />
             <ProductStockCount
                 :product="productData.product"
             />
