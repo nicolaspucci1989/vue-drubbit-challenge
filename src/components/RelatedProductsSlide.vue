@@ -36,10 +36,13 @@ export default {
   },
   data() {
     return {
-      plugins: [new Arrow({
-        disabledClass: 'd-none'
-      })]
+      plugins: []
     }
+  },
+  mounted() {
+    this.plugins = [new Arrow({
+      disabledClass: 'd-none'
+    })]
   }
 }
 </script>
