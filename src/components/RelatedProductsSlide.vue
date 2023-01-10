@@ -36,7 +36,9 @@ export default {
   },
   data() {
     return {
-      plugins: [new Arrow({})]
+      plugins: [new Arrow({
+        disabledClass: 'd-none'
+      })]
     }
   }
 }
