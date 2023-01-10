@@ -5,7 +5,7 @@
             outlined
             class="delivery-icon-card mr-2 rounded d-flex justify-center align-center"
         >
-          <v-icon class="delivery-icon">{{icon}}</v-icon>
+          <v-icon class="delivery-icon ma-2">{{icon}}</v-icon>
         </v-card>
         <slot></slot>
       </div>
