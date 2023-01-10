@@ -59,8 +59,6 @@ export default {
 
 .navigation-arrow
   background-color: #2e1a46
-  width: 55px
-  height: 55px
 
   &.left
     left: 30px
