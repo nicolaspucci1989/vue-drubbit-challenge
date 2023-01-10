@@ -2,6 +2,8 @@
   <v-card
       flat
       max-width="250"
+      class="cursor-pointer"
+      @click="goToProduct"
   >
     <div
         class="white--text discount-percent rounded rounded-bl-0 rounded-tr-0 py-3 px-2 font-weight-bold float-left">
@@ -18,15 +20,13 @@
         :src="image"
     >
       <v-img
+          v-if="hasMultipleImages"
           width="300"
           :src="secondaryImage"
           class="secondary-image"
       >
-
       </v-img>
     </v-img>
-
-
 
     <v-card-text>
       <ProductPrice small :product="product"/>
@@ -35,7 +35,9 @@
 
     <v-divider class="mx-4"></v-divider>
 
-    <v-card-actions class="d-flex justify-center">
+    <v-card-actions
+        class="d-flex justify-center"
+    >
       <v-btn
           color="black lighten-2"
           text
@@ -61,6 +63,12 @@ export default {
       required: true
     }
   },
+  methods: {
+    goToProduct() {
+      // TODO: go to product route
+      console.log(this.productUrlName)
+    }
+  },
   computed: {
     name() {
       return this.product.name
@@ -70,7 +78,14 @@ export default {
     },
     secondaryImage() {
       return this.product.images[1].square.fullUrl
-    }
+    },
+    hasMultipleImages() {
+      return this.product.images.length > 1
+    },
+    productUrlName() {
+      return this.product.urlName
+    },
+
   }
 }
 </script>
