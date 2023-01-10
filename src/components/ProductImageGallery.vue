@@ -1,29 +1,28 @@
 <template>
   <v-row>
 
-    <v-col
-        cols="1"
-        v-if="$vuetify.breakpoint.smAndUp"
-    >
-      <Flicking
-          class="flicking-viewport"
-          ref="flicking1"
-          :options="optionsSmall"
-          v-if="images.length > 0"
-      >
-        <v-img
-            class="flicking-panel thumb my-1"
-            v-for="(thumb, i) in thumbs"
-            :key="thumb.id"
-            :src="thumb.fullUrl"
-            @mouseover="onMouseOverThumb(i)"
-        />
-      </Flicking>
-    </v-col>
+<!--    <v-col-->
+<!--        cols="1"-->
+<!--        v-if="$vuetify.breakpoint.smAndUp"-->
+<!--    >-->
+<!--      <Flicking-->
+<!--          class="flicking-viewport"-->
+<!--          ref="flicking1"-->
+<!--          :options="optionsSmall"-->
+<!--          v-if="images.length > 0"-->
+<!--      >-->
+<!--        <v-img-->
+<!--            class="flicking-panel thumb my-1"-->
+<!--            v-for="(thumb, i) in thumbs"-->
+<!--            :key="thumb.id"-->
+<!--            :src="thumb.fullUrl"-->
+<!--            @mouseover="onMouseOverThumb(i)"-->
+<!--        />-->
+<!--      </Flicking>-->
+<!--    </v-col>-->
 
 
     <v-col cols="11">
-
       <Flicking
           class="flicking-viewport"
           ref="flicking0"
@@ -84,11 +83,11 @@ export default {
           flicking: this.$refs.flicking0,
           isSlidable: true
         },
-        {
-          flicking: this.$refs.flicking1,
-          isClickable: true,
-          activeClass: "active"
-        }
+        // {
+        //   flicking: this.$refs.flicking1,
+        //   isClickable: true,
+        //   activeClass: "active"
+        // }
       ]
     })];
   },
@@ -103,8 +102,7 @@ export default {
   methods: {
     onMouseOverThumb(index) {
       const duration = 0
-      return this.$refs.flicking0.moveTo(index, duration)
-          .catch()
+      this.$refs.flicking0.moveTo(index, duration)
     }
   }
 }
